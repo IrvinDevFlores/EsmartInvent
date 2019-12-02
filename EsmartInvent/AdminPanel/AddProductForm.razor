@@ -1,0 +1,76 @@
+﻿@page  "/AddProduct"
+@using Domain
+<h3>AddProductForm</h3>
+
+
+<div class='container-fluid'>
+    <div class='row'>
+
+        <div class='col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3'>
+
+            <div class="form-group">
+                <span>Nombre producto</span>
+                <input placeholder="Nombre producto" class="form-control" />
+            </div>
+
+        </div>
+
+        <div class='col-3'>
+            <div class="form-group">
+                <span class="small">Cantidad</span>
+                <input placeholder="Nombre producto" class="form-control" />
+            </div>
+        </div>
+
+        <div class='col-3'>
+            <div class="form-group">
+                <span>Categoria de produccto</span>
+                <select class="form-control" @bind="@category" >
+
+                    @foreach (var item in Enum.GetValues(typeof(TypeOfCategory)))
+                    {
+                        <option value=@Convert.ToInt32(item)>@item.ToString()</option>
+                    }
+
+                </select>
+
+            </div>
+        </div>
+
+        <div class='col-3'>
+            <div class="form-group">
+                <span class="small">Nombre producto</span>
+                <input placeholder="Nombre producto" class="form-control" />
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-3" />
+        <div class="col-3">
+            <button class="btn btn-primary btn-block">Agregar</button>
+        </div>
+        <div class="col-3">
+            <button class="btn btn-danger btn-block">Limpiar</button>
+
+          data:  @category
+        </div>
+        <div class="col-3" />
+
+    </div>
+</div>
+
+
+@code{
+
+    string category { get; set; }
+
+}
+
+@functions  {
+
+    private enum TypeOfCategory { Refrescos, Carnes, Lacteos };
+
+    private TypeOfCategory Category { get; set; }
+}
