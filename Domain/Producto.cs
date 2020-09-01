@@ -6,5 +6,8 @@ namespace Domain
 {
     class Producto
     {
+        public int ProductoId{get;set;}
+        public string NombreProducto{get;set;}
+ 
     }
 }
